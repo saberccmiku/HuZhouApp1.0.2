@@ -43,7 +43,7 @@ public class BirthdayBroadcastReceiver extends BroadcastReceiver {
      */
     int notifyId = 101;
 
-    public void clearNotify(int notifyId) {
+    public  void clearNotify(int notifyId) {
         MyApplication.mNotificationManager.cancel(notifyId);//删除一个特定的通知ID对应的通知
 //		mNotification.cancel(getResources().getString(R.string.app_name));
     }

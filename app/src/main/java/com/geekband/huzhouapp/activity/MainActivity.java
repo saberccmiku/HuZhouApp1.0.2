@@ -1,5 +1,7 @@
 package com.geekband.huzhouapp.activity;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -490,6 +492,9 @@ public class MainActivity extends BaseActivity
         @Override
         protected void onPostExecute(Integer integer) {
             pd.dismiss();
+            //清除通知栏信息
+            MyApplication.mNotificationManager.cancelAll();
+            //清理完毕回到登录界面
             Intent intent = new Intent();
             intent.setClass(MainActivity.this, LoginActivity.class);
             startActivity(intent);
