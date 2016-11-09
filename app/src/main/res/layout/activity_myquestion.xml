@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0080FF"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/btn_myquestion_back"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_back"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:src="@drawable/back_btn" />
+
+        <TextView
+            android:id="@+id/tv_myquestion_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:singleLine="true"
+            android:text="我的提问"
+            android:textColor="#FFF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <com.geekband.huzhouapp.custom.PagingLoadListView
+            android:id="@+id/lv_myquestion_questionList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#D0D0D0"
+            android:dividerHeight="1dp" />
+
+        <LinearLayout
+            android:id="@+id/vg_myquestion_emptyTip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="空空如也"
+                android:textColor="#BEBEBE"
+                android:textSize="35sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/common_empty_icon" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/vg_myquestion_errorTip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="加载失败，请刷新重试"
+                android:textColor="#BEBEBE" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/vg_myquestion_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="1dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="正在加载..."
+                android:textColor="#BEBEBE" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <com.geekband.huzhouapp.custom.RefreshButton
+                android:id="@+id/vg_myquestion_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/bg_btn_3" />
+        </RelativeLayout>
+    </FrameLayout>
+
+</LinearLayout>

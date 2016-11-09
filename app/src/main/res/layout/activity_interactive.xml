@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/interactive_layout"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="@color/blue_background">
+        <Button
+            android:id="@+id/birthdayList_backBtn"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/back_button"
+            android:text="返回"
+            android:paddingLeft="5dp"
+            android:textColor="@color/white_color"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/birthday_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_color"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="生日列表"/>
+
+    </FrameLayout>
+
+    <com.chanven.lib.cptr.PtrClassicFrameLayout
+        android:id="@+id/ptrLayout_birthday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView_birthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.chanven.lib.cptr.PtrClassicFrameLayout>
+</LinearLayout>

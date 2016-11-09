@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="10dp"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.geekband.huzhouapp.custom.CircleImage
+            android:id="@+id/contacts_image_item"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/head_default"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/contacts_name_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="name"/>
+
+            <TextView
+                android:id="@+id/contacts_sex_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:text="sex"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/contacts_phone_item"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginLeft="50dp"
+            android:text="phone"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/default_title_indicator_text_color"/>
+
+</LinearLayout>

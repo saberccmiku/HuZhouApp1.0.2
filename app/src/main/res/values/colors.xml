@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="login_text_bg">#c1b3b3</color>
+    <color name="tabs_background">#d5dcdc</color>
+    <color name="blue_background">#1cd1e6</color>
+    <color name="white_color">#ffffff</color>
+    <color name="news_content_background">#d6d3ac</color>
+    <color name="black_background">#1a1919</color>
+    <color name="gallery_background">#dcdbdb</color>
+    <color name="background_tab_pressed">#6633B5E5</color>
+    <color name="tab_color">#ffffff</color>
+    <color name="text_color_1">#02DF82</color>
+    <color name="text_color_2">#e4dfdf</color>
+    <color name="layout_bg_1">#F0F0F0</color>
+    <color name="divider_color_1">#BEBEBE</color>
+    <color name="divider_color_2">#8E8E8E</color>
+</resources>

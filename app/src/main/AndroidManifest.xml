@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="com.geekband.huzhouapp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application
+        android:name=".application.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/app_ico"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.SplashActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.MainActivity"/>
+        <activity android:name=".activity.LoginActivity"/>
+        <activity android:name=".activity.InformationContentActivity"/>
+        <activity android:name=".nav.GalleryActivity"/>
+        <activity android:name=".nav.CameraActivity"/>
+        <activity android:name=".activity.WebViewActivity"/>
+        <activity android:name=".nav.ManageActivity"/>
+        <activity android:name=".activity.NewsContentActivity"/>
+        <activity android:name=".nav.AlbumActivity"/>
+        <activity android:name=".fragment.news.CourseListActivity"/>
+        <activity android:name=".fragment.news.CourseContentActivity"/>
+        <activity android:name=".fragment.news.GradeActivity"/>
+        <activity android:name=".nav.ImageActivity"/>
+        <activity android:name=".nav.InteractiveActivity"/>
+        <activity android:name=".nav.SendGiftActivity"/>
+        <activity android:name=".nav.ReceiveBlessListActivity"/>
+        <activity android:name=".nav.BlessMessageActivity"/>
+        <activity android:name="com.chat.activity.ChatActivity"/>
+        <activity android:name="com.chat.activity.ExpertActivity"
+            android:theme="@style/Theme.PageIndicatorDefaults"/>
+        <activity android:name="com.chat.activity.QuestionDetailActivity"/>
+        <activity android:name="com.chat.activity.OthersQuestionActivity"
+            android:theme="@style/Theme.PageIndicatorDefaults"/>
+        <activity android:name="com.chat.activity.CreateQuestionActivity"/>
+        <activity android:name="com.chat.activity.MyQuestionActivity"/>
+        <activity android:name="com.chat.activity.QuestionChatActivity"/>
+        <service android:name=".service.NotificationService"/>
+    </application>
+
+</manifest>

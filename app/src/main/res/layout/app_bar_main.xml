@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/contentFragment"
+        android:layout_above="@+id/main_tabs"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+    <View
+        android:layout_above="@+id/main_tabs"
+        android:layout_marginBottom="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/login_text_bg"/>
+
+    <RelativeLayout
+        android:id="@+id/main_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true">
+
+        <ImageButton
+            android:layout_centerInParent="true"
+            android:id="@+id/newsImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/messageButton"
+            android:layout_marginRight="70dp"/>
+        <ImageButton
+            android:layout_centerInParent="true"
+            android:id="@+id/messageButton"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageButton
+            android:layout_centerInParent="true"
+            android:id="@+id/adviceImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_toRightOf="@+id/messageButton"
+            android:layout_marginLeft="70dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

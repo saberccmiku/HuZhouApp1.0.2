@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/galleryNameEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="相册名称"
+        android:textColorHint="@android:color/darker_gray"
+        android:background="@android:drawable/editbox_background_normal"
+        android:inputType="textMultiLine"/>
+    <EditText
+        android:id="@+id/galleryDescriptionEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="top"
+        android:minLines="5"
+        android:maxLines="5"
+        android:hint="相册描述"
+        android:textColorHint="@android:color/darker_gray"
+        android:background="@android:drawable/editbox_background_normal"
+        android:inputType="textMultiLine"/>
+</LinearLayout>

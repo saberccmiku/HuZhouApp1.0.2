@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@mipmap/login_bg"
+                android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/login_ico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/login_user_layout"
+        android:layout_marginBottom="20dp"
+        android:src="@mipmap/login_ico"/>
+
+
+    <LinearLayout
+        android:id="@+id/login_user_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/input_box"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/login_password_layout"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_gravity="center"
+            android:id="@+id/login_user_et"
+            android:layout_marginLeft="20dp"
+            android:drawableLeft="@mipmap/login_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="  请输入用户名"
+            android:textColorHint="@color/login_text_bg"
+            android:textColor="@color/login_text_bg"
+            android:inputType="text"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/login_password_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@mipmap/input_box"
+        android:layout_centerInParent="true">
+
+        <EditText
+            android:id="@+id/login_password_et"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:drawableLeft="@mipmap/login_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="  请输用户密码"
+            android:textColorHint="@color/login_text_bg"
+            android:textColor="@color/login_text_bg"
+            android:inputType="textPassword"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/login_btn"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/login_password_layout"/>
+    <ProgressBar
+        android:id="@+id/login_progress"
+        android:visibility="gone"
+        android:layout_below="@+id/login_btn"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_below="@+id/login_btn"
+        android:layout_marginTop="100dp"
+        android:background="@color/login_text_bg"
+        android:layout_height="1px"
+        android:layout_width="fill_parent">
+
+    </View>
+
+</RelativeLayout>

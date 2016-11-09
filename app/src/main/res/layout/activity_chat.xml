@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#FCFCFC"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/blue_background" >
+        <ImageButton
+            android:id="@+id/btn_chat_back"
+            android:src="@drawable/back_btn"
+            android:background="@drawable/bg_btn_back"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp" />
+        <TextView
+            android:id="@+id/tv_chat_title"
+            android:text="与李教授的对话"
+            android:textColor="#FFF"
+            android:textSize="20sp"
+            android:singleLine="true"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+    
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+        <LinearLayout
+            android:id="@+id/vg_chat_messageList"
+            android:visibility="visible"
+        	android:layout_width="match_parent"
+        	android:layout_height="match_parent"
+        	android:orientation="vertical" >
+        	<ListView
+        		android:id="@+id/lv_chat_messageList"
+        		android:divider="@null"
+        		android:dividerHeight="0dp"
+        		android:layout_width="match_parent"
+        		android:layout_height="0dp"
+        		android:layout_weight="1"
+        		android:paddingLeft="5dp"
+        		android:paddingRight="5dp" />
+        
+        	<LinearLayout
+        		android:id="@+id/vg_chat_send"
+        		android:background="@color/blue_background"
+        		android:layout_width="match_parent"
+        		android:layout_height="50dp"
+                android:weightSum="8"
+        		android:orientation="horizontal" >
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+        		<EditText
+            		android:id="@+id/et_chat_content"
+            		android:hint="输入文字"
+            		android:layout_width="0dp"
+                    android:textColorHighlight="@android:color/darker_gray"
+                    android:textCursorDrawable="@null"
+            		android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edit_shape"
+            		android:layout_weight="5"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5">
+                    <Button
+                        android:id="@+id/btn_chat_send"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/send_message"/>
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+    		</LinearLayout>
+    	</LinearLayout>
+    	
+        <RelativeLayout
+            android:id="@+id/vg_chat_progress"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                android:gravity="center" >
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="正在加载..."
+                    android:textColor="#000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </RelativeLayout>
+    </FrameLayout>
+    
+</LinearLayout>

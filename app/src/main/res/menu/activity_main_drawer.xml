@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@android:drawable/ic_menu_camera"
+            android:title="相机"/>
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@android:drawable/ic_menu_gallery"
+            android:title="相册"/>
+        <item
+            android:id="@+id/login_up"
+            android:icon="@android:drawable/ic_menu_slideshow"
+            android:title="退出登录"/>
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@android:drawable/ic_menu_manage"
+            android:title="个人资料"/>
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@android:drawable/ic_menu_share"
+                android:title="清理缓存文件"/>
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@android:drawable/ic_menu_send"
+                android:title="生日祝贺"/>
+        </menu>
+    </item>
+
+</menu>

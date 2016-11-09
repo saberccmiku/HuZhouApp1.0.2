@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/gallery_main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_activity_menu_com_bg_pic"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/control_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_m">
+
+        <TextView
+            android:id="@+id/gallery_back_textBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:drawableLeft="@mipmap/app_train_arrow_left"
+            android:gravity="center"
+            android:text="返回"
+            android:textColor="@color/white_color"
+            android:textSize="20sp"/>
+
+        <ProgressBar
+            android:id="@+id/gallery_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/gallery_back_textBtn"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="相册"
+            android:textColor="@color/white_color"
+            android:textSize="25sp"/>
+
+        <ImageButton
+            android:id="@+id/create_gallery_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="35dp"
+            android:layout_marginRight="35dp"
+            android:background="@mipmap/create_gallery_btn"
+            android:focusable="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/gallery_layout"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:id="@+id/create_gallery_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="60dp"
+            android:layout_toLeftOf="@+id/up_photo_layout">
+
+            <ImageButton
+                android:id="@+id/local_gallery_imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@mipmap/create_gallery"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/local_gallery_imageView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="本地相册"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/up_photo_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageButton
+                android:id="@+id/up_photo_imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@mipmap/up_photo"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/up_photo_imageView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="上传照片"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/local_photo_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="60dp"
+            android:layout_toRightOf="@+id/up_photo_layout">
+
+            <ImageButton
+                android:id="@+id/create_imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@mipmap/local_photo"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/create_imageView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="创建相册"/>
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/login_text_bg"/>
+    </RelativeLayout>
+
+    <GridView
+        android:id="@+id/gallery_gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:columnWidth="150dp"
+        android:horizontalSpacing="10dp"
+        android:numColumns="auto_fit"
+        android:stretchMode="columnWidth">
+    </GridView>
+
+    <LinearLayout
+        android:id="@+id/selected_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/editbox_background_normal"
+            android:hint="@string/gallery_description"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:minLines="5"
+            android:paddingBottom="10dp"
+            android:paddingLeft="22dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:scrollbars="vertical"
+            android:textCursorDrawable="@null"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <Spinner
+                android:id="@+id/spinner_select_gallery"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1">
+            </Spinner>
+
+            <Button
+                android:id="@+id/up_btn"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button_shape"
+                android:layout_weight="1"
+                android:text="上传"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <GridView
+                android:id="@+id/selected_image_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:numColumns="3"
+                android:horizontalSpacing="5dp"
+                android:scrollbars="vertical"
+                android:stretchMode="columnWidth"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

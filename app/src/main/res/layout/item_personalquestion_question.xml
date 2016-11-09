@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg_press_1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp" >
+    
+    <TextView
+        android:id="@+id/tv_personalquestion_title"
+        android:text="请问，我在路边捡到一个钱包，我该怎么处理？是交给附近派出所吗？我看到这里有交警，交给交警可以吗？"
+        android:textColor="#000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:ellipsize="end" />
+    
+    <RelativeLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <TextView
+        	android:id="@+id/tv_personalquestion_isResolved"
+        	android:text="已解决"
+        	android:textColor="#02DF82"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_alignParentLeft="true"
+        	android:layout_centerVertical="true" />
+        <TextView
+        	android:id="@+id/tv_personalquestion_time"
+        	android:text="2015-11-01"
+        	android:textColor="#D0D0D0"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_alignParentRight="true"
+        	android:layout_centerVertical="true" />
+        <TextView
+        	android:id="@+id/tv_personalquestion_divider"
+        	android:text=" | "
+        	android:textColor="#D0D0D0"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_toLeftOf="@id/tv_personalquestion_time"
+        	android:layout_alignTop="@id/tv_personalquestion_time" />
+        <TextView
+        	android:id="@+id/tv_personalquestion_answerNum"
+        	android:text="2"
+        	android:textColor="#D0D0D0"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_toLeftOf="@id/tv_personalquestion_divider"
+        	android:layout_alignTop="@id/tv_personalquestion_divider" />
+        <TextView
+        	android:text="回答："
+        	android:textColor="#D0D0D0"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_toLeftOf="@id/tv_personalquestion_answerNum"
+        	android:layout_alignTop="@id/tv_personalquestion_answerNum" />
+    </RelativeLayout>
+    
+</LinearLayout>

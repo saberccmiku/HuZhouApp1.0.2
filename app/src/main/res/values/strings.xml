@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">文化园地</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="text_suggest_hint">您的建议是对我们莫大的支持，我们在建议中学会改变，在改变中趋于美好，在美好中力争卓越，请输入您宝贵的建议...</string>
+    <!-- 自定义组件 -->
+    <string name="pull_to_refresh">下拉可以刷新</string>
+    <string name="release_to_refresh">松开可以刷新</string>
+    <string name="lastUpdateTime">最近更新：%s</string>
+    <string name="load_full">已加载全部</string>
+    <string name="no_data">暂无数据</string>
+    <string name="more">加载中</string>
+    <string name="hint_create">请选择您需要咨询的问题的类型，如：法律。</string>
+    <string name="welcome">欢迎您，</string>
+    <string name="gallery_description">说点什么吧...</string>
+
+    <string name="tip_error">加载失败，请刷新重试</string>
+    <string name="tip_empty">没有相关数据</string>
+    <string name="tip_loading">正在加载...</string>
+</resources>

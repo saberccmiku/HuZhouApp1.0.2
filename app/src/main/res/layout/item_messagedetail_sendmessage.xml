@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="10dp" >
+
+    <TextView
+        android:id="@+id/tv_sendmessage_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="2dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="2dp"
+        android:text="星期五 09:02"
+        android:textColor="#555756"
+        android:textSize="12sp" />
+
+    <ProgressBar
+        android:id="@+id/pb_sendmessage_progress"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="right"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/fail_resend_ib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/send_error"
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/sending_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="3dp"
+            android:src="@drawable/sending_img"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_sendmessage_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/msg_send_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:maxWidth="225dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="25dp"
+            android:paddingTop="10dp"
+            android:text="国税机关如何预防职务犯罪？"
+            android:textColor="#373334"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_sendmessage_userName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/bg_v_1"
+                android:gravity="center_horizontal"
+                android:singleLine="true"
+                android:text="令狐冲"
+                android:textColor="#000" />
+
+            <com.geekband.huzhouapp.custom.CircleImage
+                android:id="@+id/iv_sendmessage_userHead"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/head_icon" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#88FCFCFC"
+              android:orientation="vertical"
+              android:padding="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.geekband.huzhouapp.custom.CircleImage
+            android:id="@+id/iv_expert_head"
+            android:src="@mipmap/drawer_head_logo"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_margin="3dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_expert_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="李教授"
+                android:textColor="#548C00"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/tv_expert_individualTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="国家二级心理咨询师"
+                android:textColor="#ADADAD"/>
+
+            <TextView
+                android:id="@+id/tv_expert_consult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/bg_btn_1"
+                android:gravity="center"
+                android:paddingBottom="3dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="3dp"
+                android:text="向TA咨询"
+                android:textColor="#FFF"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_expert_introduction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="毕业于武汉工业学院，大专毕业。电脑修护这方面读过很多书，希望用我所学的东西来帮助大家。谢谢。"
+        android:textColor="#000"/>
+
+</LinearLayout>

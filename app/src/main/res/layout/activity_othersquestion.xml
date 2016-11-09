@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#FFF"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0080FF"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_othersquestion_back"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_back"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:src="@drawable/back_btn"/>
+
+        <TextView
+            android:id="@+id/tv_othersquestion_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:singleLine="true"
+            android:text="最新问题"
+            android:textColor="#FFF"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/btn_othersquestion_createQuestion"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_2"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="提问"
+            android:textColor="#000"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/vg_othersquestion_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <com.viewpagerindicator.TabPageIndicator
+                android:id="@+id/tpi_othersquestion_categories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#000"/>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_othersquestion_pager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/vg_othersquestion_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="1dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tip_loading"
+                android:textColor="#BEBEBE"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/vg_othersquestion_errorTip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/btn_othersquestion_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tip_error"
+                android:textColor="#BEBEBE"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/vg_othersquestion_emptyTip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="没有相关数据"
+                android:textColor="#BEBEBE"/>
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

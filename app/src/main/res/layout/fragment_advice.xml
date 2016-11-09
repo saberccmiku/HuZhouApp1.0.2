@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/fragment_advice"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+
+    <GridView
+        android:id="@+id/advice_class_gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:columnWidth="95dp"
+        android:numColumns="auto_fit"
+        android:stretchMode="columnWidth">
+
+    </GridView>
+
+    <ListView
+        android:id="@+id/lv_questionmenu_menuItemList"
+        android:divider="#BEBEBE"
+        android:dividerHeight="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" />
+
+</LinearLayout>

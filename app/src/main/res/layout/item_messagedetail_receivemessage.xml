@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    android:orientation="vertical" >
+
+
+    <TextView
+        android:text="下午 05:07"
+        android:id="@+id/tv_receivemessage_time"
+        android:textColor="#555756"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+        <com.geekband.huzhouapp.custom.CircleImage
+        	android:id="@+id/iv_receivemessage_userHead"
+        	android:src="@drawable/head_icon"
+        	android:layout_width="70dp"
+        	android:layout_height="70dp"
+        	android:layout_alignParentLeft="true"
+        	android:layout_marginLeft="5dp" />
+
+        <TextView
+            android:text="令狐冲"
+            android:id="@+id/tv_receivemessage_userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:layout_marginLeft="10dp"
+            android:singleLine="true"
+            android:textColor="#545454"
+            android:textSize="15sp"
+            android:visibility="gone"
+            android:layout_toRightOf="@id/iv_receivemessage_userHead" />
+    
+        <TextView
+            android:text="抓教育，提高全员对预防职务犯罪重要性的认识；抓制度，建立预防职务犯罪的良好机制；抓监督，减少职务犯罪的行为空间"
+            android:id="@+id/tv_receivemessage_content"
+            android:maxWidth="225dp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="18sp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="#373334"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_below="@id/tv_receivemessage_userName"
+            android:layout_marginLeft="3dp"
+            android:layout_toRightOf="@id/iv_receivemessage_userHead"
+            android:background="@drawable/msg_receive_bg"
+            android:paddingLeft="25dp"
+            android:paddingRight="10dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

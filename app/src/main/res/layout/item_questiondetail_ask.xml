@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#FFF"
+    android:focusable="false"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+<LinearLayout
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        <com.geekband.huzhouapp.custom.CircleImage
+            android:id="@+id/iv_questiondetail_ask_askerIcon"
+            android:src="@drawable/head1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <TextView
+                android:text="问："
+            	android:textColor="@color/text_color_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        
+        <TextView
+            android:id="@+id/tv_questiondetail_ask_content"
+            android:text="求救，为什么煮粥老煮成饭？不管放多少水都没用。。。。。。"
+            android:textColor="#000"
+            android:maxLines="10"
+            android:ellipsize="end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" />
+        
+        <Button
+            android:text="展开"
+            android:textColor="@color/text_color_1"
+            android:layout_gravity="right"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" >
+            <TextView
+                android:id="@+id/tv_questiondetail_ask_time"
+                android:text="1小时前"
+            	android:textColor="@color/text_color_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true" />
+            <TextView
+                android:id="@+id/tv_questiondetail_ask_answerNum"
+                android:text="12"
+            	android:textColor="@color/text_color_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true" />
+            <TextView
+                android:text="回答："
+            	android:textColor="@color/text_color_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/tv_questiondetail_ask_answerNum" />
+        </RelativeLayout>
+        
+    </LinearLayout>
+</LinearLayout>
+	
+	<View
+        android:background="@color/divider_color_2"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+	<LinearLayout
+	    android:id="@+id/vg_questiondetail_ask_divider"
+	    android:visibility="gone"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical" >
+	
+		<View
+	    	android:background="#F0F0F0"
+	    	android:layout_width="match_parent"
+	    	android:layout_height="10dp" />
+	
+		<View
+        	android:background="@color/divider_color_2"
+        	android:layout_width="match_parent"
+        	android:layout_height="1px" />
+	</LinearLayout>
+</LinearLayout>

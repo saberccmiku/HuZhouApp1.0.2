@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="87dp"
+            android:layout_weight="1"
+            android:text="姓名"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="手机"/>
+    </LinearLayout>
+
+    <com.chanven.lib.cptr.PtrClassicFrameLayout
+        android:id="@+id/contacts_ptr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="8dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/contacts_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.chanven.lib.cptr.PtrClassicFrameLayout>
+
+</LinearLayout>
