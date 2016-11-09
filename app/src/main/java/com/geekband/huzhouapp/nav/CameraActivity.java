@@ -1,6 +1,7 @@
 package com.geekband.huzhouapp.nav;
 
 import android.Manifest;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -14,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.geekband.huzhouapp.R;
 import com.geekband.huzhouapp.activity.BaseActivity;
@@ -89,6 +91,7 @@ public class CameraActivity extends BaseActivity implements View.OnClickListener
         } else {
             Intent intent = new Intent();
             intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
+            /*
             //下面这句指定调用相机拍照后的照片存储的路径
             String fileName = FileUtils.getCurrentTimeStr() + ".jpg";
             String filePath = Environment.getExternalStorageDirectory() + "/" + "privateCamera" + "/" + "image" + "/";
@@ -98,24 +101,41 @@ public class CameraActivity extends BaseActivity implements View.OnClickListener
             }
             File fullFile = new File(file, fileName);
             Uri uri = Uri.fromFile(fullFile);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
-            this.startActivity(intent);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);*/
+            //这里采取默认拍摄放置于手机相册
+            //因此拍照前判断sd是否存在
+            String SDState = Environment.getExternalStorageState();
+            if (SDState.equals(Environment.MEDIA_MOUNTED)){
+                ContentValues cv = new ContentValues();
+                Uri photoUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,cv);
+                intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT,photoUri);
+                this.startActivity(intent);
+            }else {
+                Toast.makeText(this, "内存卡不存在", Toast.LENGTH_SHORT).show();
+            }
+
         }
 
     }
 
     public void getVideo(View view) {
-        Intent intent = new Intent();
-        intent.setAction(MediaStore.ACTION_VIDEO_CAPTURE);
-        String fileName = FileUtils.getCurrentTimeStr() + ".3gp";
-        File file = new File(Environment.getExternalStorageDirectory() + "/" + "privateCamera" + "/" + "video" + "/");
-        if (!file.exists()) {
-            file.mkdirs();
+
+        //判断是否有相机权限
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
+        } else {
+            Intent intent = new Intent();
+            intent.setAction(MediaStore.ACTION_VIDEO_CAPTURE);
+            String fileName = FileUtils.getCurrentTimeStr() + ".3gp";
+            File file = new File(Environment.getExternalStorageDirectory() + "/" + "privateCamera" + "/" + "video" + "/");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            File fullFile = new File(file, fileName);
+            Uri uri = Uri.fromFile(fullFile);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+            this.startActivity(intent);
         }
-        File fullFile = new File(file, fileName);
-        Uri uri = Uri.fromFile(fullFile);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
-        this.startActivity(intent);
     }
 
 

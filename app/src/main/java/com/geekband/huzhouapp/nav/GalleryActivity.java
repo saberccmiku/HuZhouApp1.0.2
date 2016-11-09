@@ -1,5 +1,6 @@
 package com.geekband.huzhouapp.nav;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -7,11 +8,14 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -265,22 +269,27 @@ public class GalleryActivity extends Activity implements View.OnClickListener, A
      * 拍照获取图片
      */
     private void takePhoto() {
-        // 执行拍照前，应该先判断SD卡是否存在
-        String SDState = Environment.getExternalStorageState();
-        if (SDState.equals(Environment.MEDIA_MOUNTED)) {
+        //判断是否开启相机权限
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
+        }else {
+            // 执行拍照前，应该先判断SD卡是否存在
+            String SDState = Environment.getExternalStorageState();
+            if (SDState.equals(Environment.MEDIA_MOUNTED)) {
 
-            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            /***
-             * 需要说明一下，以下操作使用照相机拍照，拍照后的图片会存放在相册中的
-             * 这里使用的这种方式有一个好处就是获取的图片是拍照后的原图
-             * 如果不使用ContentValues存放照片路径的话，拍照后获取的图片为缩略图不清晰
-             */
-            ContentValues values = new ContentValues();
-            photoUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-            intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, photoUri);
-            startActivityForResult(intent, SELECT_PIC_BY_TACK_PHOTO);
-        } else {
-            Toast.makeText(this, "内存卡不存在", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                /***
+                 * 需要说明一下，以下操作使用照相机拍照，拍照后的图片会存放在相册中的
+                 * 这里使用的这种方式有一个好处就是获取的图片是拍照后的原图
+                 * 如果不使用ContentValues存放照片路径的话，拍照后获取的图片为缩略图不清晰
+                 */
+                ContentValues values = new ContentValues();
+                photoUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+                intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, photoUri);
+                startActivityForResult(intent, SELECT_PIC_BY_TACK_PHOTO);
+            } else {
+                Toast.makeText(this, "内存卡不存在", Toast.LENGTH_LONG).show();
+            }
         }
     }
 
