@@ -20,4 +20,10 @@
     <string name="tip_error">加载失败，请刷新重试</string>
     <string name="tip_empty">没有相关数据</string>
     <string name="tip_loading">正在加载...</string>
+    <string name="back">返回</string>
+    <string name="gallery">相册</string>
+    <string name="localGallery">本地相册</string>
+    <string name="uploadPhoto">上传照片</string>
+    <string name="createGallery">创建相册</string>
+    <string name="upload">上传</string>
 </resources>

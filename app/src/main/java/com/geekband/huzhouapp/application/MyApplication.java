@@ -23,7 +23,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         sDbUtils = DbUtils.create(getApplicationContext(), Constants.NEWS_TABLE);
-        sSharedPreferences = getSharedPreferences(Constants.AUTO_LOGIN,MODE_PRIVATE);
+        sSharedPreferences = getSharedPreferences(Constants.AUTO_LOGIN, MODE_PRIVATE);
         //初始化通知栏
         initService();
         initNotify();

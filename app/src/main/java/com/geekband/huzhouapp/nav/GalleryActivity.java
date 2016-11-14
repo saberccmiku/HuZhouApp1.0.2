@@ -4,7 +4,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -27,7 +26,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,17 +53,18 @@ import java.util.ArrayList;
 public class GalleryActivity extends Activity implements View.OnClickListener, AdapterView.OnItemClickListener,
         AdapterView.OnItemLongClickListener {
 
-    private TextView mGallery_back_textBtn;
+    //相册
+    public TextView mGallery_back_textBtn;
     private ImageButton mCreate_gallery_btn;
-    private RelativeLayout mGallery_layout;
-    private ImageButton mLocal_gallery_imageView;
-    private ImageButton mUp_photo_imageView;
-    private ImageButton mCreate_imageView;
+    private LinearLayout mGallery_layout;
+    public ImageButton mLocal_gallery_imageView;
+    public ImageButton mUp_photo_imageView;
+    public ImageButton mCreate_imageView;
     private boolean isCreate;
     private ProgressBar mGallery_progress;
     private GridView mGallery_gridView;
     private SelectPicPopupWindow mPicPopupWindow;
-    private Uri photoUri;
+    public Uri photoUri;
     private ProgressDialog mPd;
     /**
      * 使用照相机拍照获取图片
@@ -74,21 +73,19 @@ public class GalleryActivity extends Activity implements View.OnClickListener, A
     /**
      * 使用相册中的图片
      */
-    public static final int SELECT_PIC_BY_PICK_PHOTO = 2;
     private LinearLayout mSelected_layout;
-    private Button mUp_btn;
+    public Button mUp_btn;
     private ArrayList<AlbumTable> mAlbumInfoList;
-    private ArrayList<String> mImageThumbUrls;
+    public ArrayList<String> mImageThumbUrls;
 
     private final String IMAGE_TYPE = "image/*";
     private final int IMAGE_CODE = 0;   //这里的IMAGE_CODE是自己任意定义的
     private BitmapUtils mBitmapUtils;
     private Spinner mSpinner_select_gallery;
     private ArrayList<String> mGalleryList;
-    private GridView mSelected_image;
     private ArrayList<String> mPathList;
     private CommonAdapter<String> mSelectViewAdapter;
-    private GridView mSelected_image_grid;
+    public GridView mSelected_image_grid;
     private final String IMAGE_TAG = "addMoreImage";
     private ArrayAdapter<String> mArrayAdapter;
 
@@ -116,6 +113,9 @@ public class GalleryActivity extends Activity implements View.OnClickListener, A
         }
     }
 
+    /*
+    相册部分
+     */
     private void initAlbum() {
         mGallery_gridView.setAdapter(
                 new CommonAdapter<AlbumTable>(this, mAlbumInfoList, R.layout.item_album) {
@@ -136,7 +136,7 @@ public class GalleryActivity extends Activity implements View.OnClickListener, A
         mGallery_back_textBtn = (TextView) findViewById(R.id.gallery_back_textBtn);
         mCreate_gallery_btn = (ImageButton) findViewById(R.id.create_gallery_btn);
 
-        mGallery_layout = (RelativeLayout) findViewById(R.id.gallery_layout);
+        mGallery_layout = (LinearLayout) findViewById(R.id.gallery_layout);
         mLocal_gallery_imageView = (ImageButton) findViewById(R.id.local_gallery_imageView);
         mUp_photo_imageView = (ImageButton) findViewById(R.id.up_photo_imageView);
         mCreate_imageView = (ImageButton) findViewById(R.id.create_imageView);
@@ -154,8 +154,8 @@ public class GalleryActivity extends Activity implements View.OnClickListener, A
 
 //        mSelected_pic = (ImageView) findViewById(R.id.selected_pic);
         mUp_btn = (Button) findViewById(R.id.up_btn);
-        mSelected_image = (GridView) findViewById(R.id.selected_image_grid);
-        mSelected_image.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mSelected_image_grid = (GridView) findViewById(R.id.selected_image_grid);
+        mSelected_image_grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //给上传更多图片添加点击事件
@@ -302,7 +302,7 @@ public class GalleryActivity extends Activity implements View.OnClickListener, A
 //        intent.setType("image/*");
 //        intent.setAction(Intent.ACTION_GET_CONTENT);
 //        startActivityForResult(intent, SELECT_PIC_BY_PICK_PHOTO);
-//使用intent调用系统提供的相册功能，使用startActivityForResult是为了获取用户选择的图片
+//        使用intent调用系统提供的相册功能，使用startActivityForResult是为了获取用户选择的图片
 
         Intent getAlbum = new Intent(Intent.ACTION_GET_CONTENT);
         getAlbum.setType(IMAGE_TYPE);
@@ -338,13 +338,10 @@ public class GalleryActivity extends Activity implements View.OnClickListener, A
      * 选择图片后，获取图片的路径
      */
     private void doPhoto(int requestCode, Intent data) {
-
         //外界的程序访问ContentProvider所提供数据 可以通过ContentResolver接口
-        ContentResolver resolver = getContentResolver();
-
+        // ContentResolver resolver = getContentResolver();
         //此处的用于判断接收的Activity是不是你想要的那个
         if (requestCode == IMAGE_CODE) {
-
             Uri originalUri = data.getData();        //获得图片的uri
             String picPath = UriToPathUtils.getPath(this, originalUri);
             //上传更多按钮显示
@@ -360,16 +357,28 @@ public class GalleryActivity extends Activity implements View.OnClickListener, A
 
 
     private void initSelectView() {
-        mSelected_image_grid = (GridView) findViewById(R.id.selected_image_grid);
         mSelectViewAdapter = new CommonAdapter<String>(this, mPathList, R.layout.item_camera_list) {
             @Override
-            public void convert(ViewHolder viewHolder, String item) {
+            public void convert(ViewHolder viewHolder, final String item) {
+                ImageButton item_camera_remove = viewHolder.getView(R.id.item_camera_remove);
+                //设置移除图片按钮事件
+                item_camera_remove.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mPathList.remove(item);
+                        mSelectViewAdapter.notifyDataSetChanged();
+                    }
+                });
+                //显示图片
                 if (item.equals(IMAGE_TAG)) {
+                    //当图片集合对象为添加更多的按钮时，将gridView最后的一个位置设置成添加更多的按钮图片，并且隐藏移除按钮
                     ImageView imageView = viewHolder.getView(R.id.imageView_camera);
                     imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
                     viewHolder.setImage(R.id.imageView_camera, R.drawable.icon_add_nomal);
+                    item_camera_remove.setVisibility(View.GONE);
                 } else {
                     mBitmapUtils.display(viewHolder.getView(R.id.imageView_camera), item);
+                    item_camera_remove.setVisibility(View.VISIBLE);
                 }
             }
         };
@@ -378,9 +387,9 @@ public class GalleryActivity extends Activity implements View.OnClickListener, A
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(this, ImageActivity.class);
-        intent.putExtra(Constants.IMAGE_CONTENT_ID, mAlbumInfoList.get(position).getContentId());
-        this.startActivity(intent);
+            Intent intent = new Intent(this, ImageActivity.class);
+            intent.putExtra(Constants.IMAGE_CONTENT_ID, mAlbumInfoList.get(position).getContentId());
+            this.startActivity(intent);
     }
 
     @Override

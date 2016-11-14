@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -50,7 +51,7 @@ public class SplashActivity extends Activity {
     private NumberProgressBar loadingSeekBar;
     private ImageView loading_animation;
     private ShimmerTextView app_name;
-    private Shimmer mShimmer;
+    public Shimmer mShimmer;
     private final int NEED_UPDATE = 0;
     private final int UPDATE_PROGRESS = 1;
     private final int LOADED = 2;
@@ -115,6 +116,7 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         //获取控件
         findView();
         //加载动画
@@ -237,8 +239,6 @@ public class SplashActivity extends Activity {
 
     /**
      * 获取当前版本号
-     *
-     * @return
      */
     public String getVersionName() {
         //获取包管理器

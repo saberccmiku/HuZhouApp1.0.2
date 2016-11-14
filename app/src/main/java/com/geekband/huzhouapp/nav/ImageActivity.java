@@ -1,7 +1,6 @@
 package com.geekband.huzhouapp.nav;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -34,6 +33,7 @@ public class ImageActivity extends Activity implements AdapterView.OnItemClickLi
     private BitmapUtils mBitmapUtils;
     private CommonAdapter<String> mCommonAdapter;
     private AlbumTable mAlbumTable;
+    private int mSelectedPosition;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,15 +58,15 @@ public class ImageActivity extends Activity implements AdapterView.OnItemClickLi
     }
 
     @Override
-    public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-
+    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+        mSelectedPosition = position;
         AlertDialog.Builder builder = new AlertDialog.Builder(ImageActivity.this);
         builder.setTitle("删除图片");
         builder.setMessage("删除的图片不可恢复，您确定删除？");
         builder.setNegativeButton("是", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                new DeleteAlbumTask().execute(position);
+                new DeleteAlbumTask().execute();
             }
         });
         builder.setPositiveButton("否", new DialogInterface.OnClickListener() {
@@ -82,10 +82,6 @@ public class ImageActivity extends Activity implements AdapterView.OnItemClickLi
     }
 
     class LoadImageTask extends AsyncTask<String, Integer, Integer> {
-        @Override
-        protected void onPreExecute() {
-
-        }
 
         @Override
         protected Integer doInBackground(String... params) {
@@ -104,60 +100,11 @@ public class ImageActivity extends Activity implements AdapterView.OnItemClickLi
 
         @Override
         protected void onPostExecute(Integer integer) {
-            if (integer == 1 && mImageList.size() != 0) {
-                //mBitmapUtils.display(mTop_imageView, mImageList.get(0));
-            }
             initView();
         }
     }
 
     private void initView() {
-        //       RecyclerView image_recyclerView = (RecyclerView) findViewById(R.id.image_recyclerView);
-//        GridLayoutManager manager = new GridLayoutManager(this, 4);
-//        ImageAdapter imageAdapter = new ImageAdapter(this, mImageList);
-//
-//        image_recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(ImageActivity.this,image_recyclerView,
-//                new RecyclerItemClickListener.OnItemClickListener(){
-//
-//                    @Override
-//                    public void onItemClick(View view, int position) {
-//                        Intent intent = new Intent(ImageActivity.this, AlbumActivity.class);
-//                        if (mImageList != null) {
-//                            intent.setAction("albumList");
-//                            intent.putStringArrayListExtra("albumList", mImageList);
-//                            intent.putExtra("position",position);
-//                            startActivity(intent);
-//                        }
-//
-//                    }
-//                    @Override
-//                    public void onItemLongClick(View view, int position) {
-//
-//                        AlertDialog.Builder builder = new AlertDialog.Builder(ImageActivity.this);
-//                        builder.setTitle("删除图片");
-//                        builder.setMessage("删除的图片不可恢复，您确定删除？");
-//                        builder.setNegativeButton("是", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                //// TODO: 2016/6/25 删除一条附件信息的方法
-////                                new DeleteAlbumTask().execute();
-//                            }
-//                        });
-//                        builder.setPositiveButton("否", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//
-//                            }
-//                        });
-//
-//                        builder.create().show();
-//
-//                    }
-//                }));
-//        image_recyclerView.setLayoutManager(manager);
-//        //image_recyclerView.setItemAnimator(new DefaultItemAnimator());
-//        image_recyclerView.setAdapter(imageAdapter);
-
 
         GridView gridView_camera = (GridView) findViewById(R.id.gridView_image);
         mBitmapUtils = BitmapHelper.getBitmapUtils(this, gridView_camera, 0, 0);
@@ -173,48 +120,41 @@ public class ImageActivity extends Activity implements AdapterView.OnItemClickLi
 
     }
 
-    private class DeleteAlbumTask extends AsyncTask<Integer, Integer, Integer> {
-
-        private ProgressDialog mPd;
-
+        private class DeleteAlbumTask extends AsyncTask<Integer, Integer, Integer> {
         @Override
         protected void onPreExecute() {
-            mPd = ProgressDialog.show(ImageActivity.this, null, "正在删除...");
+            mImageList.remove(mSelectedPosition);
+            mCommonAdapter.notifyDataSetChanged();
         }
 
         @Override
         protected Integer doInBackground(Integer... params) {
-            int position = params[0];
-            mImageList.remove(position);
             try {
                 ArrayList<String> localFileUrls = FileUtil.loadImageByUrl(Constants.GALLERY_DIRECTORY_NAME, mImageList);
-                    //更新服务器数据
-                    if (insertPic(mAlbumTable, localFileUrls)) {
-                        return 1;
-                    }
+                //更新服务器数据
+                if (insertPic(mAlbumTable, localFileUrls)) {
+                    return 1;//服务器更新成功
+                }
 
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
-            }finally {
+            } finally {
                 //删除本独文件缓存
                 FileUtil.clearFolder(Constants.GALLERY_DIRECTORY_NAME);
             }
-            return 2;
+            return 2;//服务器更新失败
         }
+
 
         @Override
         protected void onPostExecute(Integer integer) {
-            mPd.dismiss();
-            if (integer==1) {
-//                mCommonAdapter.notifyDataSetChanged();
-                new LoadImageTask().execute();
-            }else if (integer==2){
-                Toast.makeText(ImageActivity.this,"删除失败",Toast.LENGTH_SHORT).show();
+            if (integer == 2) {
+                Toast.makeText(ImageActivity.this, "删除失败", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
-    private boolean insertPic(AlbumTable albumTable,ArrayList<String> mPathList) {
+    private boolean insertPic(AlbumTable albumTable, ArrayList<String> mPathList) {
         if (mPathList != null && mPathList.size() != 0) {
             Document[] documents = new Document[mPathList.size()];
             for (int i = 0; i < mPathList.size(); i++) {
@@ -222,7 +162,7 @@ public class ImageActivity extends Activity implements AdapterView.OnItemClickLi
                 documents[i] = new Document(mPathList.get(i));
             }
             return DataOperation.insertOrUpdateTable(albumTable, documents);
-        }else if (mPathList!=null&&mPathList.size()==0) {
+        } else if (mPathList != null && mPathList.size() == 0) {
             AlbumTable newAlbum = new AlbumTable();
             String userId = albumTable.getField(AlbumTable.FIELD_USERID);
             String albumName = albumTable.getField(AlbumTable.FIELD_NAME);
