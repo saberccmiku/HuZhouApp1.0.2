@@ -10,13 +10,14 @@ import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import com.geekband.huzhouapp.R;
+import com.geekband.huzhouapp.activity.BaseActivity;
 import com.geekband.huzhouapp.utils.Constants;
 import com.geekband.huzhouapp.vo.CourseInfo;
 
 /**
  * Created by Administrator on 2016/5/29
  */
-public class CourseContentActivity extends Activity {
+public class CourseContentActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

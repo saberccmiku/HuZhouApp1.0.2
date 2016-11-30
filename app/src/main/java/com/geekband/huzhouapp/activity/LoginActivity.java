@@ -3,6 +3,7 @@ package com.geekband.huzhouapp.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -11,8 +12,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.database.dto.DataOperation;
-import com.database.pojo.UserTable;
+import com.geekband.huzhouapp.utils.DataOperation;
+import com.geekband.huzhouapp.vo.pojo.UserTable;
 import com.geekband.huzhouapp.R;
 import com.geekband.huzhouapp.application.MyApplication;
 import com.geekband.huzhouapp.utils.Constants;
@@ -33,6 +34,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         mLogin_btn = (Button) findViewById(R.id.login_btn);
         mLogin_progress = (ProgressBar) findViewById(R.id.login_progress);

@@ -50,7 +50,7 @@ public class BreakingNewsFragment extends Fragment implements
     public static final int LOAD_LOCAL_NEWS = 1;//加载本地数据库新闻
     private ConvenientBanner convenientBanner;//顶部广告栏控件
     //轮播新闻列表
-    private ArrayList<String> mImageList;
+    private ArrayList<String> mRollingImageList;
     private ArrayList<DynamicNews> mRollingNewses;
     //动态新闻列表
     private ArrayList<DynamicNews> mLocalNewsList;
@@ -97,7 +97,7 @@ public class BreakingNewsFragment extends Fragment implements
             public NetworkImageHolderView createHolder() {
                 return new NetworkImageHolderView();
             }
-        }, mImageList)
+        }, mRollingImageList)
                 //设置两个点图片作为翻页指示器，不设置则没有指示器，可以根据自己需求自行配合自己的指示器,不需要圆点指示器可用不设
 
                 .setPageIndicator(new int[]{R.drawable.ic_page_indicator, R.drawable.ic_page_indicator_focused})
@@ -112,7 +112,7 @@ public class BreakingNewsFragment extends Fragment implements
         //网络图片例子,结合常用的图片缓存库UIL,你可以根据自己需求自己换其他网络图片库
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder().
                 showImageForEmptyUri(R.drawable.ic_default_adimage)
-                .cacheInMemory(true).cacheOnDisc(true).build();
+                .cacheInMemory(true).cacheOnDisc(true).showImageOnLoading(R.drawable.default_news_pic).build();
         if (getActivity() != null) {
             ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
                     getActivity().getApplicationContext()).defaultDisplayImageOptions(defaultOptions)
@@ -214,11 +214,11 @@ public class BreakingNewsFragment extends Fragment implements
                 case UPDATE_BANNER:
                     //noinspection unchecked
                     mRollingNewses = (ArrayList<DynamicNews>) msg.obj;
-                    mImageList = new ArrayList<>();
+                    mRollingImageList = new ArrayList<>();
                     //加载轮播新闻
                     if (mRollingNewses != null) {
                         for (DynamicNews dynamicNews : mRollingNewses) {
-                            mImageList.add(dynamicNews.getPicUrl());
+                            mRollingImageList.add(dynamicNews.getPicUrl());
                         }
                         //更新轮播新闻界面
                         initBannerView();

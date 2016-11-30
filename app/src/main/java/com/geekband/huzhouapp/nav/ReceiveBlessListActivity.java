@@ -1,6 +1,5 @@
 package com.geekband.huzhouapp.nav;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,9 +12,10 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.database.dto.DataOperation;
-import com.database.pojo.CommonTable;
+import com.geekband.huzhouapp.utils.DataOperation;
+import com.geekband.huzhouapp.vo.pojo.CommonTable;
 import com.geekband.huzhouapp.R;
+import com.geekband.huzhouapp.activity.BaseActivity;
 import com.geekband.huzhouapp.baseadapter.CommonAdapter;
 import com.geekband.huzhouapp.baseadapter.ViewHolder;
 import com.geekband.huzhouapp.utils.BitmapHelper;
@@ -28,7 +28,7 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2016/8/12
  */
-public class ReceiveBlessListActivity extends Activity implements AdapterView.OnItemClickListener{
+public class ReceiveBlessListActivity extends BaseActivity implements AdapterView.OnItemClickListener{
 
     private static final int READ_INFORMATION = 1;
     private static final int UNSUCCESSFUL = 2;

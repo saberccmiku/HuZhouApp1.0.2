@@ -20,9 +20,9 @@ import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.database.dto.DataOperation;
-import com.database.pojo.AppVersionTable;
-import com.database.pojo.BaseTable;
+import com.geekband.huzhouapp.utils.DataOperation;
+import com.geekband.huzhouapp.vo.pojo.AppVersionTable;
+import com.geekband.huzhouapp.vo.pojo.BaseTable;
 import com.geekband.huzhouapp.R;
 import com.geekband.huzhouapp.application.MyApplication;
 import com.geekband.huzhouapp.custom.progress.number.NumberProgressBar;

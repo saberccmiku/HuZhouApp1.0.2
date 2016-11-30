@@ -17,6 +17,7 @@ import com.chanven.lib.cptr.PtrFrameLayout;
 import com.chanven.lib.cptr.loadmore.OnLoadMoreListener;
 import com.chanven.lib.cptr.recyclerview.RecyclerAdapterWithHF;
 import com.geekband.huzhouapp.R;
+import com.geekband.huzhouapp.activity.BaseActivity;
 import com.geekband.huzhouapp.baseadapter.CommonRecyclerAdapter;
 import com.geekband.huzhouapp.baseadapter.CommonRecyclerViewHolder;
 import com.geekband.huzhouapp.custom.FloatView;
@@ -34,7 +35,7 @@ import java.util.Comparator;
 /**
  * Created by Administrator on 2016/6/29
  */
-public class InteractiveActivity extends Activity implements RecyclerAdapterWithHF.OnItemClickListener{
+public class InteractiveActivity extends BaseActivity implements RecyclerAdapterWithHF.OnItemClickListener{
 
     private static final int PULL_TO_REFRESH = 1;//下拉刷新
     private static final int PULL_TO_LOAD = 2;//上拉加载

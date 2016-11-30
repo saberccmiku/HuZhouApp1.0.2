@@ -1,18 +1,17 @@
 package com.geekband.huzhouapp.utils;
 import android.os.AsyncTask;
-import com.database.dto.DataOperation;
-import com.database.pojo.AlbumTable;
-import com.database.pojo.BaseTable;
-import com.database.pojo.CategoriesTable;
-import com.database.pojo.CommonTable;
-import com.database.pojo.ContentTable;
-import com.database.pojo.CourseTable;
-import com.database.pojo.DepartmentsTable;
-import com.database.pojo.OpinionTable;
-import com.database.pojo.StudyInfoTable;
-import com.database.pojo.UserInfoTable;
-import com.database.pojo.UserTable;
-import com.geekband.huzhouapp.activity.SplashActivity;
+
+import com.geekband.huzhouapp.vo.pojo.AlbumTable;
+import com.geekband.huzhouapp.vo.pojo.BaseTable;
+import com.geekband.huzhouapp.vo.pojo.CategoriesTable;
+import com.geekband.huzhouapp.vo.pojo.CommonTable;
+import com.geekband.huzhouapp.vo.pojo.ContentTable;
+import com.geekband.huzhouapp.vo.pojo.CourseTable;
+import com.geekband.huzhouapp.vo.pojo.DepartmentsTable;
+import com.geekband.huzhouapp.vo.pojo.OpinionTable;
+import com.geekband.huzhouapp.vo.pojo.StudyInfoTable;
+import com.geekband.huzhouapp.vo.pojo.UserInfoTable;
+import com.geekband.huzhouapp.vo.pojo.UserTable;
 import com.geekband.huzhouapp.application.MyApplication;
 import com.geekband.huzhouapp.vo.AlbumInfo;
 import com.geekband.huzhouapp.vo.BirthdayInfo;
@@ -28,12 +27,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -44,6 +39,7 @@ import java.util.Map;
 
 /**
  * Created by Administrator on 2016/5/25
+ * 用来处理服务器数据的工具类
  */
 public class DataUtils {
     /**
@@ -149,8 +145,8 @@ public class DataUtils {
                 newsPic = newsPic.substring(0, newsPic.lastIndexOf(".")) + ".jpg";
                 NetNewsInfo newsInfo = new NetNewsInfo();
                 newsInfo.setNewsTitle(newsTitle);
-                newsInfo.setNewsPic(newsPic);
-                newsInfo.setNewsHTML(newsHTML);
+                newsInfo.setImagePath(newsPic);
+                newsInfo.setNewsContent(newsHTML);
                 newsInfo.setId(i);
                 newsList.add(newsInfo);
             }

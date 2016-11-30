@@ -55,15 +55,15 @@
         <activity android:name=".nav.SendGiftActivity"/>
         <activity android:name=".nav.ReceiveBlessListActivity"/>
         <activity android:name=".nav.BlessMessageActivity"/>
-        <activity android:name="com.chat.activity.ChatActivity"/>
-        <activity android:name="com.chat.activity.ExpertActivity"
+        <activity android:name=".chat.activity.ChatActivity"/>
+        <activity android:name=".chat.activity.ExpertActivity"
             android:theme="@style/Theme.PageIndicatorDefaults"/>
-        <activity android:name="com.chat.activity.QuestionDetailActivity"/>
-        <activity android:name="com.chat.activity.OthersQuestionActivity"
+        <activity android:name=".chat.activity.QuestionDetailActivity"/>
+        <activity android:name=".chat.activity.OthersQuestionActivity"
             android:theme="@style/Theme.PageIndicatorDefaults"/>
-        <activity android:name="com.chat.activity.CreateQuestionActivity"/>
-        <activity android:name="com.chat.activity.MyQuestionActivity"/>
-        <activity android:name="com.chat.activity.QuestionChatActivity"/>
+        <activity android:name=".chat.activity.CreateQuestionActivity"/>
+        <activity android:name=".chat.activity.MyQuestionActivity"/>
+        <activity android:name=".chat.activity.QuestionChatActivity"/>
         <service android:name=".service.NotificationService"/>
     </application>
 

@@ -1,7 +1,6 @@
 package com.geekband.huzhouapp.nav;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
@@ -30,10 +29,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.database.dto.DataOperation;
-import com.database.pojo.AlbumTable;
-import com.database.pojo.Document;
+import com.geekband.huzhouapp.utils.DataOperation;
+import com.geekband.huzhouapp.vo.pojo.AlbumTable;
+import com.geekband.huzhouapp.vo.pojo.Document;
 import com.geekband.huzhouapp.R;
+import com.geekband.huzhouapp.activity.BaseActivity;
 import com.geekband.huzhouapp.application.MyApplication;
 import com.geekband.huzhouapp.baseadapter.CommonAdapter;
 import com.geekband.huzhouapp.baseadapter.ViewHolder;
@@ -50,7 +50,7 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2016/5/16
  */
-public class GalleryActivity extends Activity implements View.OnClickListener, AdapterView.OnItemClickListener,
+public class GalleryActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener,
         AdapterView.OnItemLongClickListener {
 
     //相册

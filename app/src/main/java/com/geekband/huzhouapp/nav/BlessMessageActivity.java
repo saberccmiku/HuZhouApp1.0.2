@@ -7,12 +7,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.geekband.huzhouapp.R;
+import com.geekband.huzhouapp.activity.BaseActivity;
 import com.geekband.huzhouapp.vo.DynamicNews;
 
 /**
  * Created by Administrator on 2016/8/12
  */
-public class BlessMessageActivity extends Activity implements View.OnClickListener{
+public class BlessMessageActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

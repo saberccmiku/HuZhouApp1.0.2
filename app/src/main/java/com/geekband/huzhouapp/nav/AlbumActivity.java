@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
 import com.geekband.huzhouapp.R;
+import com.geekband.huzhouapp.activity.BaseActivity;
 import com.geekband.huzhouapp.adapter.PictureSlidePagerAdapter;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2016/5/24
  */
-public class AlbumActivity extends FragmentActivity {
+public class AlbumActivity extends BaseActivity {
     private ViewPager mPicture_pager;
     private PictureSlidePagerAdapter mPictureSlidePagerAdapter;
     private ArrayList<String> mAlbumList;

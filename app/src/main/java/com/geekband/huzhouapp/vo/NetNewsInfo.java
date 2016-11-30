@@ -6,9 +6,12 @@ package com.geekband.huzhouapp.vo;
 public class NetNewsInfo  {
 
     private int id;
-    private String newsTitle;
-    private String newsPic;
-    private String newsHTML;
+    private String newsTitle;//新闻标题
+    private String publishTime;//发布时间
+    private String publisher;//发布人
+    private String fromDepartment;//来源部门
+    private String imagePath;//图片路径
+    private String newsContent;//新闻内容
 
 
     public String getNewsTitle() {
@@ -19,20 +22,20 @@ public class NetNewsInfo  {
         this.newsTitle = newsTitle;
     }
 
-    public String getNewsPic() {
-        return newsPic;
+    public String getImagePath() {
+        return imagePath;
     }
 
-    public void setNewsPic(String newsPic) {
-        this.newsPic = newsPic;
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
-    public String getNewsHTML() {
-        return newsHTML;
+    public String getNewsContent() {
+        return newsContent;
     }
 
-    public void setNewsHTML(String newsHTML) {
-        this.newsHTML = newsHTML;
+    public void setNewsContent(String newsContent) {
+        this.newsContent = newsContent;
     }
 
     public int getId() {
@@ -43,13 +46,40 @@ public class NetNewsInfo  {
         this.id = id;
     }
 
+    public String getPublishTime() {
+        return publishTime;
+    }
+
+    public void setPublishTime(String publishTime) {
+        this.publishTime = publishTime;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public String getFromDepartment() {
+        return fromDepartment;
+    }
+
+    public void setFromDepartment(String fromDepartment) {
+        this.fromDepartment = fromDepartment;
+    }
+
     @Override
     public String toString() {
         return "NetNewsInfo{" +
-                "newsTitle='" + newsTitle + '\'' +
-                ", newsPic='" + newsPic + '\'' +
-                ", newsHTML='" + newsHTML + '\'' +
-                ", id=" + id +
+                "id=" + id +
+                ", newsTitle='" + newsTitle + '\'' +
+                ", publishTime='" + publishTime + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", fromDepartment='" + fromDepartment + '\'' +
+                ", imagePath='" + imagePath + '\'' +
+                ", newsContent='" + newsContent + '\'' +
                 '}';
     }
 }

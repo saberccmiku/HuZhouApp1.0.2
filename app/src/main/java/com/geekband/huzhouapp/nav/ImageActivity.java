@@ -1,6 +1,5 @@
 package com.geekband.huzhouapp.nav;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -11,10 +10,11 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.database.dto.DataOperation;
-import com.database.pojo.AlbumTable;
-import com.database.pojo.Document;
+import com.geekband.huzhouapp.utils.DataOperation;
+import com.geekband.huzhouapp.vo.pojo.AlbumTable;
+import com.geekband.huzhouapp.vo.pojo.Document;
 import com.geekband.huzhouapp.R;
+import com.geekband.huzhouapp.activity.BaseActivity;
 import com.geekband.huzhouapp.baseadapter.CommonAdapter;
 import com.geekband.huzhouapp.baseadapter.ViewHolder;
 import com.geekband.huzhouapp.utils.BitmapHelper;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2016/6/24
  */
-public class ImageActivity extends Activity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
+public class ImageActivity extends BaseActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
     private ArrayList<String> mImageList;
     // private ImageView mTop_imageView;
     private BitmapUtils mBitmapUtils;

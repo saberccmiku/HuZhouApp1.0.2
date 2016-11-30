@@ -2,17 +2,16 @@ package com.geekband.huzhouapp.utils;
 
 import android.annotation.SuppressLint;
 
-import com.chat.adapter.pojo.Answer;
-import com.chat.adapter.pojo.Expert;
-import com.chat.adapter.pojo.Message;
-import com.chat.adapter.pojo.Question;
-import com.database.dto.DataOperation;
-import com.database.pojo.Document;
-import com.database.pojo.EnquiryTable;
-import com.database.pojo.ExpertTable;
-import com.database.pojo.ReplyTable;
-import com.database.pojo.UserInfoTable;
-import com.database.pojo.UserTable;
+import com.geekband.huzhouapp.chat.adapter.pojo.Answer;
+import com.geekband.huzhouapp.chat.adapter.pojo.Expert;
+import com.geekband.huzhouapp.chat.adapter.pojo.Message;
+import com.geekband.huzhouapp.chat.adapter.pojo.Question;
+import com.geekband.huzhouapp.vo.pojo.Document;
+import com.geekband.huzhouapp.vo.pojo.EnquiryTable;
+import com.geekband.huzhouapp.vo.pojo.ExpertTable;
+import com.geekband.huzhouapp.vo.pojo.ReplyTable;
+import com.geekband.huzhouapp.vo.pojo.UserInfoTable;
+import com.geekband.huzhouapp.vo.pojo.UserTable;
 import com.geekband.huzhouapp.application.MyApplication;
 
 import java.util.ArrayList;

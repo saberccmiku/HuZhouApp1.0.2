@@ -1,6 +1,5 @@
 package com.geekband.huzhouapp.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,9 +12,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.database.dto.DataOperation;
-import com.database.pojo.ContentTable;
-import com.database.pojo.OpinionTable;
+import com.geekband.huzhouapp.utils.DataOperation;
+import com.geekband.huzhouapp.vo.pojo.ContentTable;
+import com.geekband.huzhouapp.vo.pojo.OpinionTable;
 import com.geekband.huzhouapp.R;
 import com.geekband.huzhouapp.baseadapter.CommonAdapter;
 import com.geekband.huzhouapp.baseadapter.ViewHolder;
@@ -34,7 +33,7 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2016/9/9
  */
-public class InformationContentActivity extends Activity implements View.OnClickListener {
+public class InformationContentActivity extends BaseActivity implements View.OnClickListener {
 
     private TextView mClass_title;
     private ArrayList<DynamicNews> mContents;

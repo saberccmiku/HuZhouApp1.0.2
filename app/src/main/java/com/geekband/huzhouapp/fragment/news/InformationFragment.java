@@ -18,7 +18,7 @@ import com.chanven.lib.cptr.PtrClassicFrameLayout;
 import com.chanven.lib.cptr.PtrDefaultHandler;
 import com.chanven.lib.cptr.PtrFrameLayout;
 import com.chanven.lib.cptr.recyclerview.RecyclerAdapterWithHF;
-import com.database.pojo.OpinionTable;
+import com.geekband.huzhouapp.vo.pojo.OpinionTable;
 import com.geekband.huzhouapp.R;
 import com.geekband.huzhouapp.activity.InformationContentActivity;
 import com.geekband.huzhouapp.activity.MainActivity;

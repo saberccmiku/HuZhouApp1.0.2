@@ -1,8 +1,8 @@
 package com.geekband.huzhouapp.post;
 
-import com.database.pojo.BaseTable;
-import com.database.pojo.DataSetList;
-import com.database.pojo.Document;
+import com.geekband.huzhouapp.vo.pojo.BaseTable;
+import com.geekband.huzhouapp.vo.pojo.DataSetList;
+import com.geekband.huzhouapp.vo.pojo.Document;
 import com.geekband.huzhouapp.utils.Constants;
 
 
@@ -14,8 +14,7 @@ public final class DataOperation {
      * 向服务器端 插入一条表记录/更新现有的一条记录
      * @param tableData 要 插入/更新 的表记录
      * @param file 附件
-     * @return 插入成功的表记录的contentId
-     * @throws Exception
+     * @return 插入成功的表记录的contentID
      */
     public static boolean insertOrUpdateTable(BaseTable tableData, Document file)
     {

@@ -1,6 +1,5 @@
 package com.geekband.huzhouapp.nav;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,11 +7,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.database.dto.DataOperation;
-import com.database.pojo.CommonTable;
-import com.database.pojo.ContentTable;
-import com.database.pojo.Document;
+import com.geekband.huzhouapp.utils.DataOperation;
+import com.geekband.huzhouapp.vo.pojo.CommonTable;
+import com.geekband.huzhouapp.vo.pojo.ContentTable;
+import com.geekband.huzhouapp.vo.pojo.Document;
 import com.geekband.huzhouapp.R;
+import com.geekband.huzhouapp.activity.BaseActivity;
 import com.geekband.huzhouapp.application.MyApplication;
 import com.geekband.huzhouapp.utils.Constants;
 import com.geekband.huzhouapp.utils.FileUtils;
@@ -20,7 +20,7 @@ import com.geekband.huzhouapp.utils.FileUtils;
 /**
  * Created by Administrator on 2016/7/8
  */
-public class SendGiftActivity extends Activity implements View.OnClickListener {
+public class SendGiftActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText mGift_edit;
     private ProgressDialog mPd;

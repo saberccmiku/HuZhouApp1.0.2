@@ -1,6 +1,5 @@
 package com.geekband.huzhouapp.fragment.news;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,8 +10,9 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.database.pojo.CourseTable;
+import com.geekband.huzhouapp.vo.pojo.CourseTable;
 import com.geekband.huzhouapp.R;
+import com.geekband.huzhouapp.activity.BaseActivity;
 import com.geekband.huzhouapp.baseadapter.CommonAdapter;
 import com.geekband.huzhouapp.baseadapter.ViewHolder;
 import com.geekband.huzhouapp.utils.Constants;
@@ -24,7 +24,7 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2016/5/29
  */
-public class CourseListActivity extends Activity implements AdapterView.OnItemClickListener, View.OnClickListener {
+public class CourseListActivity extends BaseActivity implements AdapterView.OnItemClickListener, View.OnClickListener {
 
     private ProgressBar mCourse_progress;
     private ListView mCourse_listView;

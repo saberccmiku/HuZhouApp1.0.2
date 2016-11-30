@@ -14,10 +14,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.database.dto.DataOperation;
-import com.database.pojo.ContentTable;
-import com.database.pojo.Document;
-import com.database.pojo.OpinionTable;
+import com.geekband.huzhouapp.utils.DataOperation;
+import com.geekband.huzhouapp.vo.pojo.ContentTable;
+import com.geekband.huzhouapp.vo.pojo.Document;
+import com.geekband.huzhouapp.vo.pojo.OpinionTable;
 import com.geekband.huzhouapp.R;
 import com.geekband.huzhouapp.activity.MainActivity;
 import com.geekband.huzhouapp.application.MyApplication;

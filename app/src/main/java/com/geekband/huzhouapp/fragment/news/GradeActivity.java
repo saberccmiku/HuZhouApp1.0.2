@@ -9,6 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.geekband.huzhouapp.R;
+import com.geekband.huzhouapp.activity.BaseActivity;
 import com.geekband.huzhouapp.application.MyApplication;
 import com.geekband.huzhouapp.utils.Constants;
 import com.geekband.huzhouapp.utils.DataUtils;
@@ -20,7 +21,7 @@ import java.util.Date;
 /**
  * Created by Administrator on 2016/5/30
  */
-public class GradeActivity extends Activity {
+public class GradeActivity extends BaseActivity {
 
     private TextView mGrade_times;
     private TextView mNeed_grade;

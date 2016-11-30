@@ -1,7 +1,5 @@
 package com.geekband.huzhouapp.activity;
 
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,9 +25,9 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.database.dto.DataOperation;
-import com.database.pojo.Document;
-import com.database.pojo.UserTable;
+import com.geekband.huzhouapp.utils.DataOperation;
+import com.geekband.huzhouapp.vo.pojo.Document;
+import com.geekband.huzhouapp.vo.pojo.UserTable;
 import com.geekband.huzhouapp.R;
 import com.geekband.huzhouapp.application.MyApplication;
 import com.geekband.huzhouapp.custom.CircleImage;
@@ -76,7 +74,6 @@ public class MainActivity extends BaseActivity
     private static final int REQUESTCODE_PICK = 0;        // 相册选图标记
     private static final int REQUESTCODE_TAKE = 1;        // 相机拍照标记
     private static final int REQUESTCODE_CUTTING = 2;    // 图片裁切标记
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
