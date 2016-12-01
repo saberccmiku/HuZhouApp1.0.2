@@ -43,7 +43,7 @@ import com.geekband.huzhouapp.utils.Constants;
 import com.geekband.huzhouapp.utils.FileUtil;
 import com.geekband.huzhouapp.utils.FileUtils;
 import com.geekband.huzhouapp.utils.GetLocalBitmap;
-import com.geekband.huzhouapp.utils.SelectPicPopupWindow;
+import com.geekband.huzhouapp.custom.SelectPicPopupWindow;
 import com.geekband.huzhouapp.vo.CourseInfo;
 import com.geekband.huzhouapp.vo.UserBaseInfo;
 import com.lidroid.xutils.BitmapUtils;
